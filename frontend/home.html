@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Messenger</title>
+    <title>Cat Chat</title>
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <h1>Cat Chat</h1>
-    <ul id="messages"></ul>
+    <div id="messages"></div>
+    <nav>Cat Chat</nav>
     <div id="bottom-bar">
         <span id="messages-box">
             <input id="message-input" type="text">
             <button id="send-message">Send</button>
         </span>
         <span id="nickname-box">
-            Nickname:
-            <input value="anonymous user" id="nickname-input" type="text">
+            <span id="nickname-label">Nickname:</span>
+            <input value="anonymous" id="nickname-input" type="text">
         </span>
     </div>
     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>

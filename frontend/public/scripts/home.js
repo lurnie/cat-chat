@@ -25,7 +25,7 @@ input.addEventListener('keydown', (event) => {
 
 
 socket.on('message', (message) => {
-    const messageElement = document.createElement('li');
+    const messageElement = document.createElement('span');
     messageElement.innerHTML = message;
     messages.appendChild(messageElement);
     messageElement.scrollIntoView();

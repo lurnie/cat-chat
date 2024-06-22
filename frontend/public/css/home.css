@@ -4,25 +4,38 @@ body {
     background-size: 300px;
     margin: 0px;
     background-attachment: fixed;
+    color: black;
 }
 
-h1 {
+nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    right: auto;
+    font-size: 2em;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 0px;
-    background-color: white;
-    opacity: 0.9;
+    background-color: rgb(255, 160, 216);
 }
 
 #messages {
     width: 80%;
     list-style-type: none;
     margin-inline: auto;
-    margin-bottom: 80px;
-    padding: 0px;
-    li {
+    margin-top: 3em;
+    margin-bottom: 60px;
+
+    height: 100%;
+    display: table;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(229, 229, 229);
+    opacity: 0.8;
+    span {
+        display: block;
         padding: 5px;
-        background-color: rgb(229, 229, 229);
-        opacity: 0.9;
         text-align: 0
     }
 }
@@ -39,7 +52,7 @@ h1 {
 }
 
 #message-input {
-    width: 70%;
+    width: 65%;
     height: 30px;
     padding-left: 8px;
 
@@ -49,6 +62,7 @@ h1 {
 }
 
 #nickname-input {
+    width: 60%;
     height: 30px;
     padding-left: 8px;
     margin-left: 5px;
@@ -57,8 +71,15 @@ h1 {
     border: solid black 2px;
 }
 
+@media only screen and (max-width: 700px) {
+    #nickname-label {
+        display: none;
+    }
+}
+
 #messages-box {
-    width: 30%;
+    width: 100%;
+    max-width: 270px;
 }
 
 #bottom-bar {
@@ -68,6 +89,8 @@ h1 {
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 100%;
+    width: 80%;
     bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

@@ -11,11 +11,12 @@ fetch('https://api.sefinek.net/api/v2/random/animal/cat').then((res) => {
     if (res.ok) {
         res.json().then(jsonData => {
             let url = jsonData.message;
-            console.log(url)
             body.style['background-image'] = `url(${url})`;
         })
     }
 })
+
+socket.emit('nickname-change', nicknameInput.value);
 
 input.addEventListener('keydown', (event) => {
     if (event.code === 'Enter') {
@@ -23,18 +24,34 @@ input.addEventListener('keydown', (event) => {
     }
 })
 
+nicknameInput.addEventListener('focusout', () => {
+    socket.emit('nickname-change', nicknameInput.value);
+})
 
-socket.on('message', (message) => {
+function addMessage(message) {
     const messageElement = document.createElement('span');
     messageElement.innerHTML = message;
     messages.appendChild(messageElement);
     messageElement.scrollIntoView();
+}
+
+
+socket.on('message', (message) => {
+    addMessage(message);
+})
+
+socket.on('connection', () => {
+    addMessage('New user connected.');
+})
+
+
+socket.on('user-disconnection', (username) => {
+    addMessage(`${username} disconnected.`);
 })
 
 button.addEventListener('click', () => {
     let text = input.value;
-    let nickname = nicknameInput.value;
 
     input.value = '';
-    socket.emit('message', text, nickname);
+    socket.emit('message', text);
 })

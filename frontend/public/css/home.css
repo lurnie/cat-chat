@@ -41,6 +41,7 @@ nav {
 }
 
 #send-message {
+    color: black;
     height: 30px;
     background-color: rgb(255, 160, 216);
     border-radius: 5px;
@@ -55,7 +56,6 @@ nav {
     width: 65%;
     height: 30px;
     padding-left: 8px;
-
 
     border-radius: 5px;
     border: solid black 2px;
@@ -75,6 +75,9 @@ nav {
     #nickname-label {
         display: none;
     }
+    #nickname-box {
+        width: 100px;
+    }
 }
 
 #messages-box {
@@ -93,4 +96,10 @@ nav {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
+
+    @media only screen and (max-width: 700px) {
+        input {
+            font-size: 16px;
+        }
+    }
 }

@@ -16,7 +16,7 @@ fetch('https://api.sefinek.net/api/v2/random/animal/cat').then((res) => {
     }
 })
 
-socket.emit('nickname-change', nicknameInput.value);
+socket.emit('nickname-change', nicknameInput.value); // this doesn't seem to work always
 
 input.addEventListener('keydown', (event) => {
     if (event.code === 'Enter') {
@@ -29,10 +29,21 @@ nicknameInput.addEventListener('focusout', () => {
 })
 
 function addMessage(message) {
+    let allMessages = document.querySelectorAll('.message');
     const messageElement = document.createElement('span');
     messageElement.innerHTML = message;
+    messageElement.setAttribute('class', 'message');
     messages.appendChild(messageElement);
-    messageElement.scrollIntoView();
+
+    if (allMessages.length > 0) {
+        const newestMessage = allMessages[allMessages.length - 1];
+        if (newestMessage.getBoundingClientRect().bottom <= window.innerHeight) {
+            // the previous newest message is visible, so the user is scrolled near the bottom, so we should scroll down to show the newly
+            // sent message
+            messageElement.scrollIntoView();
+        }
+    }
+
 }
 
 

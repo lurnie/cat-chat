@@ -1,4 +1,4 @@
-# Cat-Chat
+# Cat Chat
 A messenger website themed around cats and built using [socket.io](https://github.com/socketio/socket.io) and [Express.js](https://github.com/expressjs/express). It uses https://api.sefinek.net/ for the random cat images shown in the background.
 
 <img src="./frontend/public/images/screenshot.png" width="800"/>
